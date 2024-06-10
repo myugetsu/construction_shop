@@ -24,7 +24,11 @@ Route::get('/customer/register', function () {
 
 Route::get('/items', function () {
     return Inertia::render('Items/ItemList');
-});
+})->name('items.list');
+
+Route::get('/items/{id}', function ($id) {
+    return Inertia::render('Items/Item', ['id' => $id]);
+})->name('items.view');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
